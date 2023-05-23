@@ -1,0 +1,70 @@
+// Parent class / superclass
+class Makanan {
+    private String nama;
+    private double harga;
+
+    public Makanan(String nama, double harga) {
+        this.nama = nama;
+        this.harga = harga;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public double getHarga() {
+        return harga;
+    }
+
+    public void info() {
+        System.out.println("Nama: " + nama);
+        System.out.println("Harga: " + harga);
+    }
+}
+
+// Child class / subclass yang mewarisi Makanan
+class MakananRingan extends Makanan {
+    private String jenis;
+
+    public MakananRingan(String nama, double harga, String jenis) {
+        super(nama, harga);
+        this.jenis = jenis;
+    }
+
+    @Override
+    public void info() {
+        super.info();
+        System.out.println("Jenis: " + jenis);
+    }
+}
+
+// Child class / subclass yang mewarisi Makanan
+class MakananBerat extends Makanan {
+    private String kategori;
+
+    public MakananBerat(String nama, double harga, String kategori) {
+        super(nama, harga);
+        this.kategori = kategori;
+    }
+
+    @Override
+    public void info() {
+        super.info();
+        System.out.println("Kategori: " + kategori);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        // Membuat objek makanan ringan
+        MakananRingan keripik = new MakananRingan("Keripik", 5000, "Snack");
+        keripik.info();
+
+        System.out.println("-------------------");
+
+        // Membuat objek makanan berat
+        MakananBerat nasiGoreng = new MakananBerat("Nasi Goreng", 25000, "Nasi");
+        nasiGoreng.info();
+    }
+}
